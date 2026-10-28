@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /*?*
 
-Sitemap: https://id-kalender.example/sitemap-index.xml
+Sitemap: https://kalendercuti.com/sitemap-index.xml

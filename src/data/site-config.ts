@@ -1,6 +1,6 @@
 /** Configuration centrale du site (générée par new-site.py). */
-export const SITE_URL = "https://id-kalender.example";
-export const SITE_NAMES: Record<string, string> = {"id": "ID Kalender", "en": "ID Kalender"};
+export const SITE_URL = "https://kalendercuti.com";
+export const SITE_NAMES: Record<string, string> = {"id": "Kalender Cuti", "en": "Kalender Cuti"};
 // Partie du nom affichée en couleur dans l'en-tête (RECETTE §10.3), “” pour aucune.
 export const BRAND_ACCENT = "Kalender";
 /** Locale des nombres et des dates : anglais britannique pour la version anglaise. */
@@ -15,12 +15,12 @@ export const SITE_FOUNDED = '2026';
 export const LAST_UPDATED = '2026-10-28';
 export const AUTHOR_NAME = 'Radif Partners';
 export const AUTHOR_ROLE: Record<string, string> = {"id": "Penerbit independen kalender hari libur Indonesia yang membaca langsung SKB tiga menteri tentang hari libur nasional dan cuti bersama", "en": "Independent publisher of an Indonesian public holiday calendar built from the joint ministerial decrees on national holidays and collective leave"};
-export const AUTHOR_DESC: Record<string, string> = {"id": "Radif Partners adalah penerbit independen, tidak terkait dengan pemerintah, kementerian, atau perusahaan mana pun. Untuk ID Kalender kami membaca naskah resmi SKB Menteri Agama, Menteri Ketenagakerjaan, dan Menteri PANRB tentang hari libur nasional dan cuti bersama 2026 dan 2027, serta Keppres Nomor 8 Tahun 2024 tentang Hari-Hari Libur. Tanggal Paskah dihitung dengan algoritme yang diuji, dan semua hitungan berjalan di peramban Anda. Tidak ada yang Anda ketik yang dikirim ke mana pun.", "en": "Radif Partners is an independent publisher with no tie to any government, ministry or company. For ID Kalender we read the official text of the joint decrees of the Ministers of Religious Affairs, Manpower and Administrative Reform on national holidays and collective leave for 2026 and 2027, and Presidential Decree 8 of 2024 on public holidays. Easter is computed by a tested algorithm, and every calculation runs in your browser. Nothing you type is sent anywhere."};
+export const AUTHOR_DESC: Record<string, string> = {"id": "Radif Partners adalah penerbit independen, tidak terkait dengan pemerintah, kementerian, atau perusahaan mana pun. Untuk Kalender Cuti kami membaca naskah resmi SKB Menteri Agama, Menteri Ketenagakerjaan, dan Menteri PANRB tentang hari libur nasional dan cuti bersama 2026 dan 2027, serta Keppres Nomor 8 Tahun 2024 tentang Hari-Hari Libur. Tanggal Paskah dihitung dengan algoritme yang diuji, dan semua hitungan berjalan di peramban Anda. Tidak ada yang Anda ketik yang dikirim ke mana pun.", "en": "Radif Partners is an independent publisher with no tie to any government, ministry or company. For Kalender Cuti we read the official text of the joint decrees of the Ministers of Religious Affairs, Manpower and Administrative Reform on national holidays and collective leave for 2026 and 2027, and Presidential Decree 8 of 2024 on public holidays. Easter is computed by a tested algorithm, and every calculation runs in your browser. Nothing you type is sent anywhere."};
 /** Sujets sur lesquels l'editeur est competent (schema.org knowsAbout). Ce sont les
  *  themes reellement traites par le site, pas une liste de mots-cles : un sujet
  *  declare ici sans page qui le couvre est une declaration fausse. */
 export const KNOWS_ABOUT: Record<string, string[]> = {"id": ["Hari libur nasional Indonesia", "Cuti bersama menurut SKB 3 Menteri", "Penetapan awal Ramadan, Idul Fitri, dan Idul Adha", "Perhitungan hari kerja dan long weekend", "Kalender Hijriah dan pasaran Jawa"], "en": ["Indonesian national public holidays", "Collective leave under the joint ministerial decree", "How the start of Ramadan, Eid al-Fitr and Eid al-Adha is set", "Counting working days and long weekends", "The Hijri calendar and the Javanese market week"]};
-export const CONTACT_EMAIL = "kontak@id-kalender.example";
+export const CONTACT_EMAIL = "contact@kalendercuti.com";
 export const THEME_COLOR = '#B91C1C';
 export const LOGO_SYMBOL = '31';
 export const BING_VERIFY_CODE = '';

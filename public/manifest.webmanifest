@@ -1,6 +1,6 @@
 {
- "name": "ID Kalender",
- "short_name": "ID Kalender",
+ "name": "Kalender Cuti",
+ "short_name": "Kalender Cuti",
  "description": "Kalender 2026 dan 2027 Indonesia: tanggal merah, cuti bersama sesuai SKB 3 Menteri, long weekend, Lebaran, puasa, hitung mundur, dan perencana cuti.",
  "start_url": "/id/",
  "display": "standalone",
