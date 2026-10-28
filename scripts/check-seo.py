@@ -61,7 +61,9 @@ SERVICE = re.compile(
     # (taxfreesalaries.com, 2026-09-25).
     # Italien : mêmes pages de service que check-trame, qui les reconnaissait déjà ;
     # check-seo reprochait à « chi siamo » ses 300 mots (lohnnetto.ch, 2026-10-03).
-    r'chi-siamo|contatti|glossario|note-legali|protezione-dati|domande-frequenti|glosario|o-nas|regulamin|polityka-prywatnosci|polityka-redakcyjna|slownik|'
+    # « metodo » (it) : même page de confiance que /method/, qui l'était déjà ; check-trame
+    # la reconnaissait, check-seo lui demandait 1 200 mots (it-calendario-ponti, 2026-10-28).
+    r'chi-siamo|contatti|metodo(?=/|$)|glossario|note-legali|protezione-dati|domande-frequenti|glosario|o-nas|regulamin|polityka-prywatnosci|polityka-redakcyjna|slownik|'
     r'impressum|mentions|aviso|colofon|legal|privacy|datenschutz|confidentialite|privacidad|'
     r'disclaimer|haftungsausschluss|'
     # « cgu » : abréviation française de conditions générales d'utilisation, page de service
@@ -94,7 +96,11 @@ SERVICE = re.compile(
     # (lonnetterskatt.no, 2026-09-27).
     r'ordliste|ordbog|metode|redaksjonell|redaktionel|personvern|privatliv|vilkar|vilkaar|'
     r'informasjonskapsler|om-os|woordenlijst|redactie|'
-    r'atualizacoes|nyheter|updates|glossar|glossario|glossaire|glossary|ordlista)',
+    r'atualizacoes|nyheter|updates|glossar|glossario|glossaire|glossary|ordlista|'
+    # Turc et indonésien : mêmes pages de service que check-trame (tr-bayram, id-kalender,
+    # 2026-10-28 ; tr-bayram avait allongé « yontem » et « hakkimizda » pour passer).
+    r'yasal-bilgiler|gizlilik|cerezler|hakkimizda|yontem(?=/|$)|iletisim|yayin-ilkeleri|kullanim-kosullari|'
+    r'tentang-kami|privasi|kebijakan-privasi|ketentuan|syarat-ketentuan|kontak|kebijakan-redaksi)',
     re.I)
 # Page de longue traîne « par montant » (ou par ancienneté, cf. AU) : un segment
 # d'URL portant un nombre. Les millésimes (2024-2030) sont exclus, sinon un slug

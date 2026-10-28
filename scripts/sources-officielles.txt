@@ -137,6 +137,7 @@ ine.pt
 bportugal.pt
 inps.it
 gazzettaufficiale.it
+normattiva.it
 agenziaentrate.it
 istat.it
 arera.it
