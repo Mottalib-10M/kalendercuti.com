@@ -1,0 +1,31 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { CLARITY_ID, CONTACT_EMAIL, GA4_ID, LAST_UPDATED, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'id';
+const title = `Cookie – ${SITE_NAMES[lang]}`;
+const description = GA4_ID ? 'Cookie pengukuran pengunjung Google Analytics dan tidak ada yang lain: nama, tujuan, masa berlaku paling lama 13 bulan, penyedia dan cara menolaknya.' : 'Situs ini tidak menaruh cookie: yang Anda ketik tetap di peramban Anda dan tidak ada yang disimpan di perangkat Anda.';
+---
+{/* Versi Indonesia dari halaman yang dibuat gen-legal-pages.py (skrip trame belum mengenal bahasa “id”). */}
+<PageLayout title={title} description={description} lang={lang} noindex={true} breadcrumbs={[{ label: 'Cookie' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Cookie</h1>
+    {GA4_ID ? (<>
+    <p>Situs ini hanya menaruh cookie pengukuran pengunjung Google Analytics: tidak ada cookie iklan atau media sosial. Rincian pemrosesan ada di <a href={route('privacy', lang)}>kebijakan privasi</a>.</p>
+    <h2>Cookie yang dipakai</h2>
+    <table><thead><tr><th>Nama</th><th>Penyedia</th><th>Tujuan</th><th>Masa berlaku</th></tr></thead><tbody>
+    <tr><td><code>_ga</code></td><td>Google Analytics</td><td>Membedakan pengunjung dengan pengenal acak</td><td>Paling lama 13 bulan (390 hari)</td></tr>
+    <tr><td><code>_ga_{GA4_ID.replace('G-', '')}</code></td><td>Google Analytics</td><td>Menyimpan status kunjungan</td><td>Paling lama 13 bulan (390 hari)</td></tr>
+    </tbody></table>
+    <p>Penyedia: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irlandia. Alamat IP dianonimkan dan tidak ada iklan. Dasar hukum: kepentingan sah penerbit (Pasal 6 ayat 1 huruf f GDPR).</p>
+    <h2>Menolak cookie ini</h2>
+    <p>Blokir atau hapus cookie di pengaturan peramban Anda, atau pasang <a href="https://tools.google.com/dlpage/gaoptout" rel="nofollow noopener" target="_blank">pengaya penolakan Google Analytics</a>. Situs dan alatnya tetap bekerja sama.</p>
+    </>): (<>
+    <p>Situs ini <strong>tidak menaruh cookie</strong> apa pun, baik esensial maupun non-esensial. Rincian pemrosesan ada di <a href={route('privacy', lang)}>kebijakan privasi</a>.</p>
+    </>)}
+    {CLARITY_ID && (<><h2>Microsoft Clarity, tanpa cookie</h2><p>Stabilitas halaman dipantau dengan Microsoft Clarity dalam mode tanpa cookie: setiap tampilan halaman mendapat pengenal sekali pakai, dan isi halaman serta isian Anda disamarkan. Memblokir <code>clarity.ms</code> menghentikannya.</p></>)}
+    <h2>Yang Anda ketik</h2>
+    <p>Hitungan berjalan di peramban Anda: isian tidak dikirim ke server mana pun dan hilang saat halaman ditutup.</p>
+    <p>Pertanyaan: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Pembaruan terakhir: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

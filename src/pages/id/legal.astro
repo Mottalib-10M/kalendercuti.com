@@ -1,0 +1,33 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CLARITY_ID, CONTACT_EMAIL, GA4_ID, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'id';
+const title = `Ketentuan dan informasi hukum – ${SITE_NAMES[lang]}`;
+const description = 'Penerbit, penanggung jawab isi, penyedia hosting, bukan nasihat, hak kekayaan intelektual, data pribadi dan hukum yang berlaku untuk situs ini.';
+---
+{/* Versi Indonesia dari halaman yang dibuat gen-legal-pages.py (skrip trame belum mengenal bahasa “id”). */}
+<PageLayout title={title} description={description} lang={lang} noindex={true} breadcrumbs={[{ label: 'Ketentuan' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Ketentuan dan informasi hukum</h1>
+    <p>Informasi tentang penerbit (publisher) dan syarat penggunaan {SITE_URL}.</p>
+    <h2>Penerbit</h2>
+    <LegalIdentity lang={lang} />
+    <p>Penanggung jawab isi: {AUTHOR_NAME}, yang bertanggung jawab atas isi yang diterbitkan di {SITE_URL}.</p>
+    <h2>Penyedia hosting</h2>
+    <LegalIdentity mode="hosting" lang={lang} />
+    <h2>Tujuan situs dan bukan nasihat</h2>
+    <p>Situs ini menyediakan kalender, alat hitung dan panduan gratis sebagai informasi. Tanggal resmi berasal dari SKB yang dikutip di setiap halaman; hasil hitungan bukan nasihat pribadi, bukan keputusan, dan bukan komitmen instansi mana pun. Metode dan batas: <a href={route('method', lang)}>metode</a>.</p>
+    <h2>Tanggung jawab</h2>
+    <p>Daftar tanggal diperbarui dan hitungan diuji terhadap kasus acuan, tanpa jaminan bebas kesalahan. Penerbit tidak bertanggung jawab atas keputusan yang hanya didasarkan pada perkiraan. Laporkan kesalahan lewat <a href={route('contact', lang)}>halaman kontak</a>.</p>
+    <h2>Kekayaan intelektual</h2>
+    <p>Teks, desain dan kode milik penerbit; kutipan singkat dengan tautan ke halaman asli dipersilakan. Naskah SKB dan peraturan adalah dokumen resmi milik publik.</p>
+    <h2>Data pribadi dan cookie</h2>
+    {GA4_ID ? (<p>Yang Anda ketik tetap di peramban Anda. Situs ini menaruh cookie pengukuran Google Analytics (<code>_ga</code>, <code>_ga_{GA4_ID.replace('G-', '')}</code>, paling lama 13 bulan), tanpa iklan{CLARITY_ID && ' ; stabilitas halaman dipantau dengan Microsoft Clarity tanpa cookie'}. Rinciannya: <a href={route('privacy', lang)}>kebijakan privasi</a> dan halaman <a href={route('cookies', lang)}>cookie</a>.</p>): (<p>Yang Anda ketik tetap di peramban Anda dan situs ini tidak menaruh cookie{CLARITY_ID && ' ; stabilitas halaman dipantau secara anonim dengan Microsoft Clarity tanpa cookie'}. Lihat <a href={route('privacy', lang)}>kebijakan privasi</a> dan halaman <a href={route('cookies', lang)}>cookie</a>.</p>)}
+    <h2>Melaporkan isi</h2>
+    <p>Laporkan isi yang melanggar hukum ke <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>, dengan alamat halaman dan alasannya.</p>
+    <h2>Hukum yang berlaku</h2>
+    <p>Hukum Prancis. Bila tidak tercapai penyelesaian damai, pengadilan yang berwenang di {LEGAL.jurisdiction}. Pembaruan terakhir: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

@@ -1,0 +1,20 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { CONTACT_EMAIL, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { contactPageSchema } from '../../lib/seo';
+const lang = 'en';
+const description = 'Write to us if a national holiday, a collective leave day or a Hijri date looks wrong, or if you would like to embed this Indonesia calendar on your own website.';
+---
+<PageLayout title={`Contact ${SITE_NAMES[lang]}: report an error, embed the calendar`} description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Contact', description, path: route('contact', lang), lang })]} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Contact</h1>
+    <p>Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. We usually reply within a week.</p>
+    <h2>A date looks wrong</h2>
+    <p>Tell us the page, the year and, if you can, the decree number or official announcement you rely on. We check against the source and correct within a few days.</p>
+    <h2>Embed the calendar on your site</h2>
+    <p>Offices, schools, communities and local media can embed the calendar and the leave planner for free: <a href={route('widget', lang)}>Embed</a>.</p>
+    <h2>What we do not do</h2>
+    <p>We give no employment-law advice, sell no tickets or tours, and set no dates.</p>
+  </div>
+</PageLayout>

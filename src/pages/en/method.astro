@@ -1,0 +1,46 @@
+---
+/** Method: decrees, Easter, leave planner, working days, Hijri, pasaran, new moon, tests, limits. Every figure from the engine. */
+import PageLayout from '../../layouts/PageLayout.astro';
+import { route } from '../../i18n/routes';
+import { KIT as K } from '../../lib/kit';
+import { srcLink } from '../../lib/helpers';
+import { breadcrumbSchema, webPageSchema } from '../../lib/seo';
+import { displayDate } from '../../lib/format';
+const lang = 'en';
+const path = route('method', lang);
+const title = 'Indonesia holiday calendar 2027: method, sources and tests';
+const description = 'How we build the 2027 Indonesia calendar: dates from the decree annexes, Easter computed, an exact leave planner, Hijri dates, pasaran and automated tests.';
+const s = (k: string, t: string) => srcLink(k, lang, t);
+const d = (x: string) => displayDate(x, 'en-GB');
+const p4 = K.optimalkan(2027, 4);
+const hk = K.hariKerja(2027).reduce((a, b) => a + b, 0);
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[webPageSchema({ name: 'Method', description, path, lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'Method', path }])]} breadcrumbs={[{ label: 'Method' }]}>
+  <article class="prose prose-slate max-w-none">
+    <h1>How the tools find holidays, collective leave and long weekends</h1>
+    <p>Every tool on this site runs in your browser. What you enter stays on your device. The basis is the annexes of the three-minister joint decree and a few open computation rules. Our last full reading: {d(K.P.retrieved_at)}.</p>
+
+    <h2>Official dates: the decree annexes</h2>
+    <p>National holidays and collective leave are set each year by a joint decree of the Minister of Religious Affairs, the Minister of Manpower and the Minister for Administrative and Bureaucratic Reform. For 2027 that is <Fragment set:html={s('skb-2027', `decree ${K.SKB[2027].nomor}`)} />, signed on {d(K.SKB[2027].ditetapkan)}; for 2026 <Fragment set:html={s('skb-2026', `decree ${K.SKB[2026].nomor}`)} />, signed on {d(K.SKB[2026].ditetapkan)}. We copy the dates from annex A (national holidays) and annex B (collective leave). An automated test checks every date against the weekday column of the annex: if one figure were mistyped, the weekday would not match and the site would not be published.</p>
+    <p>Decrees can be amended. In 2024 the government issued an <Fragment set:html={s('skb-2024-perubahan', 'amending decree')} /> after the first list. If that happens again, we replace the dates, rerun every test and show the update date on each page.</p>
+
+    <h2>Good Friday, Easter and Ascension Day</h2>
+    <p>All three depend on Easter. We compute it with <Fragment set:html={s('paskah-ptb', "Gauss's formula")} /> and check it with a second, independent algorithm (Meeus, Jones, Butcher) for every year from 1600 to 2600. The result must match the decree: Good Friday two days before Easter, Ascension Day 39 days after.</p>
+
+    <h2>How the leave planner works</h2>
+    <p>The year is split into blocks: days off (Saturdays, Sundays, national holidays and, if you choose, collective leave) and working blocks. Taking every day of a working block off joins the two blocks of days off around it. The planner searches every combination for the one that gives the most consecutive days off for your leave budget, and on a tie the one using fewer leave days. It is dynamic programming over every working block of the year, so the answer is exact. Example for 2027: {p4.cuti} leave days give {p4.libur} days off in {p4.blok.length} blocks.</p>
+    <p>Two options change the result. First, collective leave: civil servants follow it, while for private employers it is up to management (sixth provision of the decree). Second, a six-day week: if you work on Saturdays, Saturday becomes a working day.</p>
+
+    <h2>Working days</h2>
+    <p>Working days are Monday to Friday (or Saturday) minus national holidays and, if chosen, collective leave. On a five-day week with collective leave off, 2027 has {hk} working days. The minimum annual leave is 12 working days after 12 months of continuous service under Article 79 of the Manpower Act as amended by <Fragment set:html={s('uu-6-2023', 'Law 6 of 2023')} />; collective leave is deducted from it (fourth provision of the decree).</p>
+
+    <h2>Hijri dates, new moon and pasaran</h2>
+    <p>Indonesia sets the start of Ramadan, Shawwal and Dhu al-Hijjah through the isbat session of the Ministry of Religious Affairs (<Fragment set:html={s('setkab-isbat', 'example of a ruling')} />). We therefore use the dates implied by the decree: 1 Shawwal is Eid al-Fitr, 10 Dhu al-Hijjah is Eid al-Adha, then 1 Muharram, 12 Rabi' al-Awwal for the Prophet's Birthday and 27 Rajab for Isra Mi'raj. Other months follow the <Fragment set:html={s('ummulqura', 'Umm al-Qura')} /> calendar and are marked "computed". The new moon (ijtimak) uses Jean Meeus's formula and agrees with <Fragment set:html={s('nasa-fase-bulan', 'NASA tables')} /> within minutes. The Javanese pasaran is an unbroken five-day cycle; our anchor is 17 August 1945, a Friday Legi.</p>
+
+    <h2>Limits</h2>
+    <p>The tools know nothing of regional holidays, school holidays, shift rotas or your employer's policy. 2028 is not official yet: its decree has not been published, so we show only fixed dates (1 January, 1 May, 1 June, 17 August, 25 December), computed Easter dates and Hijri estimates clearly marked as such.</p>
+
+    <h2>Updates</h2>
+    <p>We reread the ministry's page every month and as soon as a new or amending decree appears. Report errors through the <a href={route('contact', lang)}>contact page</a>; how we correct is in the <a href={route('editorial', lang)}>editorial policy</a>.</p>
+  </article>
+</PageLayout>

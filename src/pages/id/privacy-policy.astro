@@ -1,0 +1,49 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { CLARITY_ID, CONTACT_EMAIL, GA4_ID, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'id';
+const title = `Kebijakan privasi – ${SITE_NAMES[lang]}`;
+const description = GA4_ID ? 'Pengukuran pengunjung dengan Google Analytics tanpa iklan; isian tetap di peramban Anda; log server; hak Anda dan otoritas pengawas yang dapat Anda hubungi.' : 'Isian tetap di peramban Anda, tanpa cookie, log server: pemrosesan data di balik situs ini, hak Anda dan otoritas pengawas yang dapat Anda hubungi.';
+---
+{/* Versi Indonesia dari halaman yang dibuat gen-legal-pages.py (skrip trame belum mengenal bahasa “id”). */}
+<PageLayout title={title} description={description} lang={lang} noindex={true} breadcrumbs={[{ label: 'Privasi' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Kebijakan privasi</h1>
+    <p>Halaman ini menjelaskan pemrosesan data pribadi yang terkait dengan penggunaan {SITE_URL}, menurut Pasal 12 sampai 14 Peraturan (UE) 2016/679 (GDPR), karena penerbitnya berkedudukan di Prancis.</p>
+    <h2>1. Pengendali data</h2>
+    <LegalIdentity lang={lang} />
+    <p>Untuk setiap pertanyaan tentang data Anda: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Tidak ada petugas pelindungan data yang ditunjuk karena syarat Pasal 37 GDPR tidak terpenuhi.</p>
+    <h2>2. Yang Anda ketik tetap di peramban Anda</h2>
+    <p>Semua hitungan berjalan di peramban Anda. Tahun, jumlah cuti, tanggal atau tanggal lahir yang Anda masukkan <strong>tidak dikirim ke server mana pun</strong>, tidak disimpan, dan tidak dikaitkan dengan pengenal apa pun. Situs ini tidak meminta akun, nama atau alamat surel. Tautan berbagi membawa isian Anda di alamat halaman: kirimkan hanya kepada orang yang Anda pilih.</p>
+    <h2>3. Pemrosesan yang dilakukan</h2>
+    <h3>Log akses penyedia hosting</h3>
+    <p>Untuk setiap permintaan, penyedia hosting mencatat alamat IP, tanggal dan jam, halaman yang diminta, peramban dan halaman perujuk. Tujuan: keamanan layanan dan diagnosis gangguan. Dasar hukum: kepentingan sah penerbit (Pasal 6 ayat 1 huruf f GDPR). Masa simpan: sesuai kebijakan penyedia hosting.</p>
+    {GA4_ID ? (<>
+    <h3>Pengukuran pengunjung dengan Google Analytics</h3>
+    <p>Situs ini memakai Google Analytics 4 untuk menghitung kunjungan dan melihat halaman mana yang berguna: halaman yang dilihat, halaman perujuk, lama kunjungan, jenis perangkat dan peramban, perkiraan negara dan kota. Untuk itu Google Analytics menaruh dua cookie di perangkat Anda: <code>_ga</code>, yang membedakan pengunjung dengan pengenal acak, dan <code>_ga_{GA4_ID.replace('G-', '')}</code>, yang menyimpan status kunjungan. Masa berlakunya paling lama 13 bulan (390 hari) dan tidak diperpanjang pada setiap kunjungan.</p>
+    <p>Alamat IP dianonimkan: Google Analytics 4 tidak mencatat maupun menyimpannya. Alamat halaman yang dikirim tidak memuat parameter, sehingga isian dalam tautan berbagi tidak ikut terkirim. Situs ini tidak menampilkan iklan: penyimpanan iklan, data pengguna iklan, personalisasi iklan dan Google signals dimatikan.</p>
+    <p>Tujuan: pengukuran pengunjung. Dasar hukum: kepentingan sah penerbit (Pasal 6 ayat 1 huruf f GDPR). Penyedia: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irlandia. Masa simpan di Google: 14 bulan, lalu dihapus.</p>
+    </>): (<>
+    <h3>Tanpa pengukuran pengunjung</h3>
+    <p>Situs ini tidak menaruh cookie apa pun, baik esensial maupun non-esensial, dan tidak memakai alat analitik atau iklan.</p>
+    </>)}
+    {CLARITY_ID && (<>
+    <h3>Pemantauan stabilitas dengan Microsoft Clarity, tanpa cookie</h3>
+    <p>Untuk menemukan galat, halaman lambat dan tombol yang tidak bereaksi, situs ini memakai Microsoft Clarity dalam mode tanpa cookie: setiap tampilan halaman mendapat pengenal sendiri, dan teks halaman serta isian Anda disamarkan. Dasar hukum: kepentingan sah penerbit (Pasal 6 ayat 1 huruf f GDPR). Penyedia: Microsoft Ireland Operations Limited, Dublin, Irlandia. Masa simpan: 30 hari untuk rekaman, paling lama 13 bulan untuk data gabungan.</p>
+    </>)}
+    <h3>Pesan yang Anda kirim</h3>
+    <p>Bila Anda menulis ke alamat kontak, alamat surel dan pesan Anda disimpan selama diperlukan untuk membalas dan, bila perlu, memperbaiki kesalahan, lalu dihapus paling lambat tiga tahun setelah pertukaran terakhir.</p>
+    <h2>4. Penerima</h2>
+    <p>Tidak ada data yang dijual, disewakan atau diteruskan. Akses terbatas pada penyedia hosting{GA4_ID && ', Google Ireland Limited untuk Google Analytics'}{CLARITY_ID && ', Microsoft Ireland Operations Limited untuk Clarity'}, sebagai pemroses menurut Pasal 28 GDPR.</p>
+    <h2>5. Transfer ke luar Uni Eropa</h2>
+    <p>Log hosting dapat diproses di Amerika Serikat. Transfer ini didasarkan pada EU–U.S. Data Privacy Framework dan klausul kontrak baku Komisi Eropa.</p>
+    <h2>6. Hak Anda</h2>
+    <p>Anda berhak atas akses, perbaikan, penghapusan, pembatasan, keberatan dan portabilitas menurut Pasal 15 sampai 22 GDPR. Tulis ke <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> ; kami membalas dalam satu bulan. Karena tidak ada akun pengguna, biasanya kami tidak menyimpan data yang mengidentifikasi Anda, dan kami akan memberi tahu Anda.</p>
+    <p>Anda dapat mengajukan pengaduan kepada otoritas pengawas: {LEGAL.supervisoryAuthority} (<a href={LEGAL.supervisoryAuthorityUrl} rel="nofollow noopener" target="_blank">{LEGAL.supervisoryAuthorityUrl}</a>).</p>
+    <h2>7. Tanpa keputusan otomatis</h2>
+    <p>Hasil hitungan adalah perkiraan yang dibuat atas permintaan Anda, dari isian Anda, di peramban Anda. Hasil itu tidak berakibat hukum dan bukan keputusan otomatis menurut Pasal 22 GDPR. Tidak ada pembuatan profil.</p>
+    <p>Lihat juga halaman <a href={route('cookies', lang)}>cookie</a>. Pembaruan terakhir: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

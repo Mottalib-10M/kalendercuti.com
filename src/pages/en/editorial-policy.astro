@@ -1,0 +1,27 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, REVIEW_CYCLE_MONTHS } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { displayDate } from '../../lib/format';
+const lang = 'en';
+---
+<PageLayout title="Editorial policy: sources, testing and correcting dates" description="Where the national holidays, collective leave and Hijri dates come from, the order in which we read sources, how the tools are tested, and what happens when we are wrong." lang={lang} noindex={true} breadcrumbs={[{ label: 'Editorial policy' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Editorial policy and corrections</h1>
+    <p>If you book a homecoming ticket on a wrong date, the loss is real. This page explains where each date comes from and what we do when there is a mistake.</p>
+    <h2>Responsibility</h2><p>Content and tools are the responsibility of {AUTHOR_NAME}. Contact: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Order of sources</h2>
+    <ol>
+      <li><strong>Official texts</strong>: the three-minister joint decree on national holidays and collective leave, any amending decree, the presidential decree on public holidays and the Manpower Act;</li>
+      <li><strong>Official announcements</strong>: the Minister of Religious Affairs' ruling after the isbat session, releases of the Cabinet Secretariat;</li>
+      <li><strong>Computation rules</strong>: Gauss's Easter formula, the Umm al-Qura calendar, Meeus's new-moon formula checked against NASA tables.</li>
+    </ol>
+    <p>Social media images, news articles and other calendar sites are never a source of dates. When something is not official yet, such as the 2028 decree or the start of Ramadan, we write "not yet published" or "estimate".</p>
+    <h2>Computed, not copied</h2><p>No date is typed into the page text: all are read from a single tested list. Automated tests check each date's weekday against the decree, compare Easter with a second formula over a thousand years and test the leave planner on every change.</p>
+    <h2>Review cycle</h2><p>A full review at least every {REVIEW_CYCLE_MONTHS} months, and as soon as a new decree is published.</p>
+    <h2>Handling errors</h2>
+    <ol><li>Check against the source.</li><li>Fix the list or rule and add a test.</li><li>New update date on every page.</li></ol>
+    <h2>Independence</h2><p>No money from airlines, travel agents, hotels or authorities. No affiliate links, paid content or lead forms.</p>
+    <p>See also <a href={route('method', lang)}>Method</a>. Version {displayDate(LAST_UPDATED, 'en-GB')}.</p>
+  </div>
+</PageLayout>

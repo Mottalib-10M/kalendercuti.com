@@ -1,0 +1,20 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { CONTACT_EMAIL, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { contactPageSchema } from '../../lib/seo';
+const lang = 'id';
+const description = 'Tulis kepada kami bila ada tanggal merah, cuti bersama atau tanggal Hijriah yang tampak keliru, atau bila Anda ingin memasang kalender ini di situs Anda sendiri.';
+---
+<PageLayout title={`Kontak ${SITE_NAMES[lang]}: laporkan kesalahan, pasang kalender`} description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Kontak', description, path: route('contact', lang), lang })]} breadcrumbs={[{ label: 'Kontak' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Kontak</h1>
+    <p>Surel: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Kami biasanya membalas dalam seminggu.</p>
+    <h2>Ada tanggal yang keliru</h2>
+    <p>Sebutkan halamannya, tahunnya dan, bila bisa, nomor SKB atau pengumuman resmi yang Anda rujuk. Kami memeriksa sumbernya dan memperbaiki dalam beberapa hari.</p>
+    <h2>Pasang kalender di situs Anda</h2>
+    <p>Kantor, sekolah, komunitas dan media lokal boleh memasang kalender dan perencana cuti secara gratis: <a href={route('widget', lang)}>Pasang alat</a>.</p>
+    <h2>Yang tidak kami lakukan</h2>
+    <p>Kami tidak memberi nasihat hukum ketenagakerjaan, tidak menjual tiket atau paket wisata, dan tidak menetapkan tanggal apa pun.</p>
+  </div>
+</PageLayout>

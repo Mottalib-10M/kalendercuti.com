@@ -1,0 +1,27 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, REVIEW_CYCLE_MONTHS } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { displayDate } from '../../lib/format';
+const lang = 'id';
+---
+<PageLayout title="Kebijakan redaksi: sumber, pengujian dan koreksi tanggal" description="Dari mana tanggal libur nasional, cuti bersama dan tanggal Hijriah berasal, urutan sumber yang kami baca, cara alat diuji, dan apa yang terjadi bila kami keliru." lang={lang} noindex={true} breadcrumbs={[{ label: 'Kebijakan redaksi' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Kebijakan redaksi dan koreksi</h1>
+    <p>Bila Anda memesan tiket mudik berdasarkan tanggal yang salah, kerugiannya nyata. Halaman ini menjelaskan dari mana setiap tanggal berasal dan apa yang kami lakukan bila ada kesalahan.</p>
+    <h2>Tanggung jawab</h2><p>Isi dan alat menjadi tanggung jawab {AUTHOR_NAME}. Kontak: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Urutan sumber</h2>
+    <ol>
+      <li><strong>Naskah resmi</strong> : SKB tiga menteri tentang hari libur nasional dan cuti bersama, SKB perubahannya bila ada, Keppres tentang hari-hari libur, dan undang-undang ketenagakerjaan ;</li>
+      <li><strong>Pengumuman resmi</strong> : penetapan Menteri Agama setelah sidang isbat, siaran Sekretariat Kabinet ;</li>
+      <li><strong>Aturan hitung</strong> : rumus Paskah Gauss, kalender Umm al-Qura, rumus bulan baru Meeus yang dicocokkan dengan tabel NASA.</li>
+    </ol>
+    <p>Gambar di media sosial, artikel berita dan situs kalender lain bukan sumber tanggal. Bila sesuatu belum resmi, misalnya SKB 2028 atau awal Ramadan, kami menulis “belum terbit” atau “perkiraan”.</p>
+    <h2>Dihitung, bukan disalin</h2><p>Tanggal di halaman tidak diketik di dalam teks: semuanya dibaca dari satu daftar yang diuji. Tes otomatis memeriksa nama hari setiap tanggal terhadap SKB, membandingkan Paskah dengan algoritme kedua selama seribu tahun, dan menguji perencana cuti pada setiap perubahan.</p>
+    <h2>Siklus tinjauan</h2><p>Tinjauan menyeluruh paling lambat setiap {REVIEW_CYCLE_MONTHS} bulan, dan segera setelah SKB baru terbit.</p>
+    <h2>Menangani kesalahan</h2>
+    <ol><li>Periksa terhadap sumber.</li><li>Perbaiki daftar atau aturan dan tambahkan tes.</li><li>Tanggal pembaruan baru di setiap halaman.</li></ol>
+    <h2>Independensi</h2><p>Tidak ada uang dari maskapai, agen perjalanan, hotel atau instansi. Tidak ada tautan afiliasi, konten berbayar, atau formulir prospek.</p>
+    <p>Lihat juga <a href={route('method', lang)}>Metode</a>. Versi {displayDate(LAST_UPDATED, 'id-ID')}.</p>
+  </div>
+</PageLayout>

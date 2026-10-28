@@ -1,0 +1,34 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { route } from '../../i18n/routes';
+import { AUTHOR_NAME, AUTHOR_DESC, CONTACT_EMAIL, SITE_NAMES } from '../../data/site-config';
+import { srcLink } from '../../lib/helpers';
+import { KIT as K } from '../../lib/kit';
+import { displayDate } from '../../lib/format';
+import { profilePageSchema, breadcrumbSchema } from '../../lib/seo';
+const lang = 'id';
+const path = route('about', lang);
+const title = 'Kalender 2027 ID Kalender: siapa penerbitnya dan sumbernya';
+const description = 'Siapa yang menerbitkan kalender 2027 ini: Radif Partners, independen, tanpa iklan perjalanan. Dari mana tanggal merah, cuti bersama dan tanggal Hijriah berasal.';
+const s = (k: string, t: string) => srcLink(k, lang, t);
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[profilePageSchema({ path, lang }), breadcrumbSchema([{ name: 'Beranda', path: route('home', lang) }, { name: 'Tentang kami', path }])]} breadcrumbs={[{ label: 'Tentang kami' }]}>
+  <article class="prose prose-slate max-w-none">
+    <h1>Tentang {SITE_NAMES[lang]}</h1>
+    <p>{AUTHOR_DESC.id}</p>
+    <h2>Mengapa situs ini ada</h2>
+    <p>Setiap September pemerintah menerbitkan SKB tiga menteri tentang libur nasional dan cuti bersama tahun berikutnya. Yang beredar kemudian biasanya gambar tabel di media sosial, berkas PDF tanpa sumber, atau artikel yang tidak menghitung apa pun. Situs ini membaca naskah SKB itu sendiri, menampilkannya dalam kalender, lalu menghitung apa yang benar-benar Anda butuhkan: kapan long weekend, berapa hari cuti yang perlu diambil, berapa hari kerja dalam sebulan, dan berapa hari lagi menuju Lebaran.</p>
+    <h2>Siapa penerbitnya</h2>
+    <p>Penerbitnya adalah {AUTHOR_NAME}, perusahaan yang membuat alat hitung dari aturan dan data publik. {AUTHOR_NAME} bukan instansi pemerintah dan tidak memakai lambang negara atau logo kementerian. Situs ini tidak menjual tiket, paket wisata, atau kalender, dan tidak memuat tautan afiliasi.</p>
+    <LegalIdentity lang={lang} />
+    <h2>Dari mana datanya</h2>
+    <p>Tanggal libur nasional dan cuti bersama berasal dari lampiran <Fragment set:html={s('skb-2027', 'SKB 2027')} /> dan <Fragment set:html={s('skb-2026', 'SKB 2026')} /> yang diunggah Kemenko PMK. SKB itu merujuk pada <Fragment set:html={s('keppres-8-2024', 'Keppres Nomor 8 Tahun 2024')} /> tentang hari-hari libur. Hak cuti tahunan mengikuti Pasal 79 UU Ketenagakerjaan sebagaimana diubah <Fragment set:html={s('uu-6-2023', 'UU Nomor 6 Tahun 2023')} />. Tanggal Hijriah di luar tanggal SKB dihitung dengan kalender <Fragment set:html={s('ummulqura', 'Umm al-Qura')} /> dan ijtimak dengan rumus yang kami cocokkan ke tabel <Fragment set:html={s('nasa-fase-bulan', 'NASA')} />. Cara kerjanya ada di halaman <a href={route('method', lang)}>metode</a>.</p>
+    <h2>Data Anda</h2>
+    <p>Semua alat berjalan di peramban Anda. Tahun, jumlah cuti, atau tanggal lahir yang Anda masukkan tidak dikirim dan tidak disimpan. Tidak ada akun dan tidak ada formulir. Rinciannya ada di <a href={route('privacy', lang)}>kebijakan privasi</a>.</p>
+    <h2>Yang tidak dilakukan situs ini</h2>
+    <p>Situs ini tidak menetapkan tanggal apa pun: yang berwenang adalah pemerintah, dan untuk awal Ramadan, Idul Fitri dan Idul Adha, Menteri Agama setelah sidang isbat. Situs ini juga tidak memuat libur sekolah atau libur daerah, karena keduanya diatur pemerintah daerah dan sekolah masing-masing.</p>
+    <h2>Hubungi kami</h2>
+    <p><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> bila ada tanggal yang tampak keliru. Daftar SKB terakhir dibaca pada {displayDate(K.TGL_BACA, 'id-ID')}.</p>
+  </article>
+</PageLayout>

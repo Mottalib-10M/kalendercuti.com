@@ -1,0 +1,46 @@
+---
+/** Metode: SKB, Paskah, perencana cuti, hari kerja, Hijriah, pasaran, ijtimak, tes, batas. Setiap angka dari mesin. */
+import PageLayout from '../../layouts/PageLayout.astro';
+import { route } from '../../i18n/routes';
+import { KIT as K } from '../../lib/kit';
+import { srcLink } from '../../lib/helpers';
+import { breadcrumbSchema, webPageSchema } from '../../lib/seo';
+import { displayDate } from '../../lib/format';
+const lang = 'id';
+const path = route('method', lang);
+const title = 'Kalender 2027 Indonesia: metode, sumber SKB dan pengujian';
+const description = 'Cara kami menyusun kalender 2027 Indonesia: tanggal dari lampiran SKB 3 Menteri, Paskah dihitung, perencana cuti yang tepat, Hijriah, pasaran dan tes otomatis.';
+const s = (k: string, t: string) => srcLink(k, lang, t);
+const d = (x: string) => displayDate(x, 'id-ID');
+const p4 = K.optimalkan(2027, 4);
+const hk = K.hariKerja(2027).reduce((a, b) => a + b, 0);
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[webPageSchema({ name: 'Metode', description, path, lang }), breadcrumbSchema([{ name: 'Beranda', path: route('home', lang) }, { name: 'Metode', path }])]} breadcrumbs={[{ label: 'Metode' }]}>
+  <article class="prose prose-slate max-w-none">
+    <h1>Cara alat ini menemukan tanggal merah, cuti bersama dan long weekend</h1>
+    <p>Semua alat di situs ini berjalan di peramban Anda. Apa yang Anda masukkan tetap di perangkat Anda. Dasar perhitungannya adalah lampiran SKB tiga menteri dan beberapa aturan hitung yang terbuka. Pembacaan lengkap terakhir: {d(K.P.retrieved_at)}.</p>
+
+    <h2>Tanggal resmi: lampiran SKB</h2>
+    <p>Libur nasional dan cuti bersama setiap tahun ditetapkan dalam Keputusan Bersama Menteri Agama, Menteri Ketenagakerjaan dan Menteri PANRB. Untuk 2027 itu <Fragment set:html={s('skb-2027', `SKB Nomor ${K.SKB[2027].nomor}`)} />, ditetapkan {d(K.SKB[2027].ditetapkan)} ; untuk 2026 <Fragment set:html={s('skb-2026', `SKB Nomor ${K.SKB[2026].nomor}`)} />, ditetapkan {d(K.SKB[2026].ditetapkan)}. Kami menyalin tanggal dari lampiran A (libur nasional) dan lampiran B (cuti bersama). Tes otomatis memeriksa setiap tanggal terhadap kolom “hari” di lampiran: bila satu angka salah ketik, nama harinya tidak cocok dan situs tidak diterbitkan.</p>
+    <p>SKB bisa diubah. Pada 2024 pemerintah menerbitkan <Fragment set:html={s('skb-2024-perubahan', 'SKB perubahan')} /> setelah daftar awal. Bila hal serupa terjadi, kami mengganti tanggal, menjalankan ulang semua tes dan menulis tanggal pembaruan di setiap halaman.</p>
+
+    <h2>Paskah, Wafat dan Kenaikan Yesus Kristus</h2>
+    <p>Ketiganya bergantung pada tanggal Paskah. Kami menghitungnya dengan <Fragment set:html={s('paskah-ptb', 'rumus Gauss')} /> dan memeriksanya dengan algoritme kedua yang independen (Meeus, Jones, Butcher) untuk setiap tahun dari 1600 sampai 2600. Hasilnya harus sama dengan tanggal di SKB: Wafat Yesus Kristus dua hari sebelum Paskah, Kenaikan 39 hari sesudahnya.</p>
+
+    <h2>Cara kerja perencana cuti</h2>
+    <p>Tahun dibagi menjadi blok: blok libur (Sabtu, Minggu, libur nasional dan, bila Anda memilihnya, cuti bersama) dan blok kerja. Mengambil cuti pada semua hari satu blok kerja menyambung dua blok libur di sekitarnya. Perencana menelusuri semua kombinasi dan memilih yang memberi hari libur berturut-turut paling banyak dengan jumlah cuti Anda; bila sama, yang memakai cuti paling sedikit. Ini pemrograman dinamis atas semua blok kerja dalam setahun, jadi hasilnya tepat, bukan kira-kira. Contoh 2027: {p4.cuti} hari cuti memberi {p4.libur} hari libur dalam {p4.blok.length} blok.</p>
+    <p>Dua pilihan mengubah hasil. Pertama, cuti bersama: bagi ASN berlaku sesuai ketentuan, sedangkan bagi swasta pelaksanaannya diatur pimpinan masing-masing (Diktum KEENAM SKB). Kedua, enam hari kerja seminggu: bila Sabtu Anda bekerja, Sabtu masuk blok kerja.</p>
+
+    <h2>Hari kerja</h2>
+    <p>Hari kerja = Senin sampai Jumat (atau Sabtu) dikurangi libur nasional dan, bila dipilih, cuti bersama. Dengan pola lima hari dan cuti bersama sebagai libur, 2027 punya {hk} hari kerja. Hak cuti tahunan minimum 12 hari kerja setelah 12 bulan bekerja terus-menerus, menurut Pasal 79 UU Ketenagakerjaan sebagaimana diubah <Fragment set:html={s('uu-6-2023', 'UU 6/2023')} /> ; cuti bersama mengurangi hak itu (Diktum KEEMPAT SKB).</p>
+
+    <h2>Tanggal Hijriah, ijtimak dan pasaran</h2>
+    <p>Indonesia menetapkan awal Ramadan, Syawal dan Zulhijah lewat sidang isbat Kementerian Agama (<Fragment set:html={s('setkab-isbat', 'contoh penetapan')} />). Karena itu kami memakai tanggal yang tersirat dalam SKB: 1 Syawal = Idul Fitri, 10 Zulhijah = Idul Adha, 1 Muharam, 12 Rabiulawal = Maulid, 27 Rajab = Isra Mikraj. Bulan lain dihitung dengan kalender <Fragment set:html={s('ummulqura', 'Umm al-Qura')} /> dan diberi tanda “perhitungan”. Waktu ijtimak dihitung dengan rumus bulan baru Jean Meeus; hasilnya cocok dengan <Fragment set:html={s('nasa-fase-bulan', 'tabel NASA')} /> dalam hitungan menit. Pasaran Jawa adalah siklus lima hari yang tidak pernah putus; titik acuannya 17 Agustus 1945, Jumat Legi.</p>
+
+    <h2>Batas</h2>
+    <p>Alat ini tidak mengenal libur daerah, libur sekolah, jadwal sif, atau kebijakan perusahaan Anda. Tanggal 2028 belum resmi: SKB 2028 belum terbit, jadi kami hanya menunjukkan tanggal yang tetap (1 Januari, 1 Mei, 1 Juni, 17 Agustus, 25 Desember), tanggal Paskah yang dihitung, dan perkiraan Hijriah yang ditandai jelas.</p>
+
+    <h2>Pembaruan</h2>
+    <p>Kami membaca ulang laman Kemenko PMK setiap bulan dan segera setelah SKB baru atau SKB perubahan terbit. Laporkan kesalahan lewat <a href={route('contact', lang)}>halaman kontak</a> ; cara kami memperbaiki ada di <a href={route('editorial', lang)}>kebijakan redaksi</a>.</p>
+  </article>
+</PageLayout>

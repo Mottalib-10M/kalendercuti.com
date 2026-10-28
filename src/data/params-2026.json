@@ -1,0 +1,108 @@
+{
+ "_lisezmoi": "Paramètres datés du site. Chaque source a été relue le 2026-10-28 ; les dates officielles sont celles des annexes des SKB 2026 et 2027 (engine/libur.ts), vérifiées par les tests.",
+ "year": 2026,
+ "retrieved_at": "2026-10-28",
+ "valid_from": "2026-01-01",
+ "valid_to": "2027-12-31",
+ "tahun": [
+  2026,
+  2027
+ ],
+ "cuti_tahunan": {
+  "min_hari": 12,
+  "setelah_bulan": 12
+ },
+ "sources": {
+  "skb-2027": {
+   "url": "https://www.kemenkopmk.go.id/sites/default/files/pengumuman/2026-09/SKB%20Libur%20Nasional%20dan%20Cuti%20Bersama%20Tahun%202027.pdf",
+   "label": {
+    "id": "SKB Menteri Agama, Menteri Ketenagakerjaan, dan Menteri PANRB Nomor 1205, 3, 2 Tahun 2026 tentang Hari Libur Nasional dan Cuti Bersama Tahun 2027 (PDF, Kemenko PMK)",
+    "en": "Joint decree of the Ministers of Religious Affairs, Manpower and Administrative Reform No. 1205, 3 and 2 of 2026 on national holidays and collective leave 2027 (PDF)"
+   }
+  },
+  "skb-2027-halaman": {
+   "url": "https://www.kemenkopmk.go.id/surat-keputusan-bersama-menteri-agama-menteri-ketenagakerjaan-dan-menteri-pan-rb-tentang-hari-libur",
+   "label": {
+    "id": "Kemenko PMK : pengumuman SKB hari libur nasional dan cuti bersama 2027 (15 September 2026)",
+    "en": "Coordinating Ministry for Human Development and Culture: announcement of the 2027 decree (15 September 2026)"
+   }
+  },
+  "skb-2026": {
+   "url": "https://www.kemenkopmk.go.id/sites/default/files/pengumuman/2025-09/SKB%20Libur%20Nasional%20dan%20Cuti%20Bersama%20Tahun%202026.pdf",
+   "label": {
+    "id": "SKB Menteri Agama, Menteri Ketenagakerjaan, dan Menteri PANRB Nomor 1497, 2, 5 Tahun 2025 tentang Hari Libur Nasional dan Cuti Bersama Tahun 2026 (PDF, Kemenko PMK)",
+    "en": "Joint decree No. 1497, 2 and 5 of 2025 on national holidays and collective leave 2026 (PDF)"
+   }
+  },
+  "skb-2026-halaman": {
+   "url": "https://www.kemenkopmk.go.id/pemerintah-tetapkan-17-hari-libur-nasional-dan-8-cuti-bersama-tahun-2026",
+   "label": {
+    "id": "Kemenko PMK : Pemerintah tetapkan 17 hari libur nasional dan 8 cuti bersama tahun 2026 (19 September 2025)",
+    "en": "Coordinating Ministry: government sets 17 national holidays and 8 collective leave days for 2026 (19 September 2025)"
+   }
+  },
+  "skb-2024-perubahan": {
+   "url": "https://jdih.kemenkopmk.go.id/home/detail_peraturan/SKB+Perubahan+tentang+Hari+Libur+Nasional+dan+Cuti+Bersama+2024",
+   "label": {
+    "id": "JDIH Kemenko PMK : SKB Perubahan tentang Hari Libur Nasional dan Cuti Bersama 2024 (contoh SKB yang diubah)",
+    "en": "Legal database of the Coordinating Ministry: amended joint decree on 2024 holidays (an example of a decree being changed)"
+   }
+  },
+  "keppres-8-2024": {
+   "url": "https://peraturan.bpk.go.id/Details/276688/keppres-no-8-tahun-2024",
+   "label": {
+    "id": "Keputusan Presiden Nomor 8 Tahun 2024 tentang Hari-Hari Libur (JDIH BPK)",
+    "en": "Presidential Decree No. 8 of 2024 on public holidays (BPK legal database)"
+   }
+  },
+  "uu-6-2023": {
+   "url": "https://jdih.kemnaker.go.id/peraturan/detail/2302/undang-undang-nomor-6-tahun-2023",
+   "label": {
+    "id": "Undang-Undang Nomor 6 Tahun 2023 (Cipta Kerja), yang mengubah Pasal 79 UU 13/2003 tentang cuti tahunan (JDIH Kemnaker)",
+    "en": "Law No. 6 of 2023 (Job Creation), amending Article 79 of the Manpower Law on annual leave (Ministry of Manpower legal database)"
+   }
+  },
+  "setkab-idulfitri-1447": {
+   "url": "https://setkab.go.id/presiden-prabowo-salat-idulfitri-dan-halalbihalal-dengan-jemaah-masjid-darussalam-aceh-tamiang/",
+   "label": {
+    "id": "Sekretariat Kabinet : Presiden salat Idulfitri 1447 H, Sabtu 21 Maret 2026",
+    "en": "Cabinet Secretariat: the President attends Eid al-Fitr 1447 AH prayers, Saturday 21 March 2026"
+   }
+  },
+  "setkab-iduladha-1447": {
+   "url": "https://setkab.go.id/presiden-prabowo-salat-iduladha-1447-h-bersama-diaspora-indonesia-di-paris/",
+   "label": {
+    "id": "Sekretariat Kabinet : salat Iduladha 1447 H, Rabu 27 Mei 2026",
+    "en": "Cabinet Secretariat: Eid al-Adha 1447 AH prayers, Wednesday 27 May 2026"
+   }
+  },
+  "setkab-isbat": {
+   "url": "https://setkab.go.id/pemerintah-tetapkan-1-syawal-1445h-jatuh-pada-rabu-10-april-2024/",
+   "label": {
+    "id": "Sekretariat Kabinet : Pemerintah tetapkan 1 Syawal 1445 H melalui sidang isbat (contoh prosedur)",
+    "en": "Cabinet Secretariat: government sets 1 Shawwal 1445 AH after the isbat session (how the procedure works)"
+   }
+  },
+  "nasa-fase-bulan": {
+   "url": "https://eclipse.gsfc.nasa.gov/phase/phases2001.html",
+   "label": {
+    "id": "NASA Goddard (F. Espenak) : tabel fase Bulan 2001–2100 (bulan baru / ijtimak)",
+    "en": "NASA Goddard (F. Espenak): Moon phases 2001–2100 (new moon times)"
+   }
+  },
+  "ummulqura": {
+   "url": "https://www.ummulqura.org.sa/",
+   "label": {
+    "id": "Kalender Umm al-Qura (Arab Saudi), dasar perhitungan tanggal Hijriah di luar tanggal SKB",
+    "en": "Umm al-Qura calendar (Saudi Arabia), the basis of Hijri dates outside the decree dates"
+   }
+  },
+  "paskah-ptb": {
+   "url": "https://www.ptb.de/cms/ptb/fachabteilungen/abt4/fb-44/ag-441/darstellung-der-gesetzlichen-zeit/wann-ist-ostern.html",
+   "label": {
+    "id": "Physikalisch-Technische Bundesanstalt (Jerman) : rumus Paskah Gauss",
+    "en": "Physikalisch-Technische Bundesanstalt (Germany): Gauss's Easter formula"
+   }
+  }
+ }
+}
